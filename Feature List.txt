@@ -1,0 +1,67 @@
+To Do:
+---------------------------------------------------------------------
+-organise and comment code
+-find the range in unicode/utf-8 over which english and korean symbols occur
+-bind <BackSpace> to back_screen when not words_entry.focus()
+-learn some more python: decorators, etc
+
+
+Bugs:
+---------------------------------------------------------------------
+-flash colour shows the different boxes when used too quickly
+-letters are always wrong
+
+
+
+Future Feature Ideas:
+---------------------------------------------------------------------
+-historical data
+-plot wpm over time
+
+
+
+Game Mode Ideas:
+-------------------------------------	--------------------------------
+-Letters only (countdown/timed/no limit)
+-Words (countdown/timed/no limit)
+
+
+
+Scrapped Ideas (for now at least):
+---------------------------------------------------------------------
+-make the settings screen not destroy the previous screen; grid_remove/just stack it on top, check whether settings stay in either case, otherwise maybe use grid_forget
+
+
+
+Mostly Completed (or at least no longer urgent), May Need Revisions:
+---------------------------------------------------------------------
+-implement new game modes
+-implement a timer and words/sec calculator
+-bind <Key> to start the timer on timed games
+-create a template for gamemodes to compress the code
+-bind enter to Done in the typing games
+-URGENT: rework screen system to not use content frame
+-rework the screen system so that the previous screen list holds screens up to but not including the current
+-implement a system for checking words typed against words displayed
+-convert from:
+	from tkinter import *
+	from tkinter.ttk import *
+to:
+	import tkinter as tk
+	import tkinter.ttk as ttk
+-change get_words() to account for word frequency
+-create new wordlist by parsing books to get word frequency
+-widget placement, formatting and font
+-should probably just switch linkedList over to standard python list, it does literally nothing extra
+-words to display could work as follows:
+def game():
+	word_list_raw = get_words()
+	while quit is False:
+		word_to_be_typed, word_list = word_list_raw[0], word_list_raw[1:]
+		*word is submitted, word_to_be_typed is replaced by word_list[0]*
+		word_list_raw = get_words(word_list)
+
+def get_words(self, word_list=[]):
+	while len(word_list)<10
+		*add a word to word_list*
+-try using lists of tuples to speed up the word selection. If it is ordered by frequency (high to low) it should be faster than unordered.
